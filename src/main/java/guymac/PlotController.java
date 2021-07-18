@@ -50,9 +50,9 @@ public class PlotController
                 var tr = (Element)nodes.item(i);
                 var state = xpath.evaluate("th", tr);
                 
-                var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replaceAll("%", ""));
-                var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replaceAll("%", ""));
-                xydata.add(new XYChart.Data <Double, Double>(x, y, state));                
+                var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replace("%", ""));
+                var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replace("%", ""));
+                xydata.add(new XYChart.Data <>(x, y, state));                
             }
         } 
         catch (Exception ex)
