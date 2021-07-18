@@ -3,9 +3,7 @@ package guymac;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Element;
@@ -24,16 +22,6 @@ public class PlotController
 {
 
     @FXML private ObservableList <XYChart.Data <Double, Double>> xydata;
-    private XPath xpath = XPathFactory.newInstance().newXPath();
-    
-    void parseRow(Element tr) throws NumberFormatException, XPathExpressionException
-    {
-        var state = xpath.evaluate("th", tr);
-        
-        var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replaceAll("%", ""));
-        var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replaceAll("%", ""));
-        xydata.add(new XYChart.Data <Double, Double>(x, y, state));
-    }
 
     @FXML void initialize()
     {
@@ -52,12 +40,19 @@ public class PlotController
             return;
         }
              
+        var xpath = XPathFactory.newInstance().newXPath();
+        
         try
         {
             NodeList nodes = (NodeList)xpath.evaluate("//tbody/tr", new InputSource(file.openStream()), XPathConstants.NODESET);
             for (int i = 0 ; i < nodes.getLength() ; i++)
             {
-                parseRow((Element)nodes.item(i));
+                var tr = (Element)nodes.item(i);
+                var state = xpath.evaluate("th", tr);
+                
+                var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replaceAll("%", ""));
+                var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replaceAll("%", ""));
+                xydata.add(new XYChart.Data <Double, Double>(x, y, state));                
             }
         } 
         catch (Exception ex)
