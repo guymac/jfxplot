@@ -14,6 +14,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Tooltip;
 
 public class PlotController
 {
@@ -70,6 +71,7 @@ public class PlotController
         {
             var color = item.getYValue().doubleValue() >= 50 ? "blue" : "red";
             item.getNode().setStyle(String.format("-fx-background-color: %s", color));
+            Tooltip.install(item.getNode(), new Tooltip(item.getExtraValue().toString()));
         }
     }
 }
