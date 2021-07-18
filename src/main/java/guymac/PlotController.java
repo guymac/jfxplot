@@ -7,6 +7,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.regex.Pattern;
 
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,24 +28,16 @@ import javafx.scene.control.Tooltip;
 
 public class PlotController
 {
-    //@FXML ScatterChart <Double, Double> xychart;
-    //@FXML XYChart.Series<Double, Double> xyseries;
-    @FXML ObservableList <XYChart.Data <Double, Double>> xydata;
-    Pattern dataline = Pattern.compile("(?<State>\\D+)\\s+(?<VaxxPct>\\S+?)%\\s+(?<BluePct>\\S+?)%\\s*");
+
+    @FXML private ObservableList <XYChart.Data <Double, Double>> xydata;
+    private XPath xpath = XPathFactory.newInstance().newXPath();
     
-    void parseLine(String line)
+    void parseRow(Element tr) throws NumberFormatException, XPathExpressionException
     {
-        var matcher = dataline.matcher(line);
+        var state = tr.getElementsByTagName("th").item(0).getTextContent();
         
-        if (!matcher.matches()) 
-        {
-            System.err.format("Invalid line '%s'%n", line);
-            return;
-        }
-        
-        var x = Double.parseDouble(matcher.group("VaxxPct"));
-        var y = Double.parseDouble(matcher.group("BluePct"));
-        var state = matcher.group("State");
+        var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replaceAll("%", ""));
+        var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replaceAll("%", ""));
         xydata.add(new XYChart.Data <Double, Double>(x, y, state));
     }
 
@@ -46,7 +48,7 @@ public class PlotController
         
         try
         {
-            file = getClass().getResource("/vaxdata20210717.txt");
+            file = getClass().getResource("/vaxdata20210717.xhtml");
             if (file == null) throw new IOException("File not found");
         }
         catch (IOException ex)
@@ -55,12 +57,16 @@ public class PlotController
             Platform.exit();
             return;
         }
-        
-        try (var lines = Files.lines(Path.of(file.toURI())))
+             
+        try
         {
-            lines.filter(line -> !line.isBlank() && !line.matches("\\s*#.*")).forEach(this::parseLine);
+            NodeList nodes = (NodeList)xpath.evaluate("//tbody/tr", new InputSource(file.openStream()), XPathConstants.NODESET);
+            for (int i = 0 ; i < nodes.getLength() ; i++)
+            {
+                parseRow((Element)nodes.item(i));
+            }
         } 
-        catch (IOException | URISyntaxException ex)
+        catch (Exception ex)
         {
             new Alert(AlertType.ERROR, ex.getMessage()).showAndWait();
             Platform.exit();
