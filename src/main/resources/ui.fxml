@@ -4,7 +4,6 @@
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
-<?import java.lang.Double?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="guymac.PlotController">
