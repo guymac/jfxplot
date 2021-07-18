@@ -1,13 +1,8 @@
 package guymac;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.regex.Pattern;
 
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -20,7 +15,6 @@ import org.xml.sax.InputSource;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -34,7 +28,7 @@ public class PlotController
     
     void parseRow(Element tr) throws NumberFormatException, XPathExpressionException
     {
-        var state = tr.getElementsByTagName("th").item(0).getTextContent();
+        var state = xpath.evaluate("th", tr);
         
         var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replaceAll("%", ""));
         var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replaceAll("%", ""));
