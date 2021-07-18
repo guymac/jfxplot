@@ -14,12 +14,8 @@
 				<version>3.8.1</version>
 				<configuration>
 					<release>16</release>
-					<compilerArgs>
-						<arg>--enable-preview</arg>
-					</compilerArgs>
 				</configuration>
 			</plugin>
-
 		
 			<!-- see https://github.com/openjfx/javafx-maven-plugin -->
 			<!-- mvn javafx:run to run the application -->
@@ -30,12 +26,6 @@
 				<version>0.0.6</version>
 				<configuration>
 					<mainClass>guymac.Plotter</mainClass>
-					<options>
-						<option>--enable-preview</option>
-					</options>
-					<launcher>plotter</launcher>
-					<jlinkImageName>plotter</jlinkImageName>
-					<jlinkZipName>plotter</jlinkZipName>
 				</configuration>
 			</plugin>
 
