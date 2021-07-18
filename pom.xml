@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>guymac</groupId>
+	<artifactId>jfxplot</artifactId>
+	<version>0.1</version>
+
+	<build>
+		<plugins>
+		
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>14</release>
+					<compilerArgs>
+						<arg>--enable-preview</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+
+		
+			<!-- see https://github.com/openjfx/javafx-maven-plugin -->
+			<!-- mvn javafx:run to run the application -->
+			<!-- mvn javafx:jlink to generate a runtime image -->
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.6</version>
+				<configuration>
+					<mainClass>guymac.Plotter</mainClass>
+					<options>
+						<option>--enable-preview</option>
+					</options>
+					<launcher>plotter</launcher>
+					<jlinkImageName>plotter</jlinkImageName>
+					<jlinkZipName>plotter</jlinkZipName>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- see https://openjfx.io/openjfx-docs/#maven -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>16</version>
+		</dependency>
+	</dependencies>
+
+</project>

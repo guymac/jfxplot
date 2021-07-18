@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import java.lang.Double?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="guymac.PlotController">
+	<ScatterChart fx:id="xychart" title="State Vaccination Vs. Voting Blue"
+		prefWidth="600" prefHeight="600" legendVisible="false">
+		<xAxis>
+			<NumberAxis fx:id="xAxis" label="\% Fully Vaccinated (17 July 2021)" lowerBound="30"
+				upperBound="75" tickUnit="10" autoRanging="false" />
+		</xAxis>
+		<yAxis>
+			<NumberAxis fx:id="yAxis" label="\% Voted Blue in 2020" lowerBound="25"
+				upperBound="70" tickUnit="10" autoRanging="false" />
+		</yAxis>
+		<data>
+			<FXCollections fx:factory="observableArrayList">
+				<XYChart.Series fx:id="xyseries">
+					<data>
+						<FXCollections fx:factory="observableArrayList"
+							fx:id="xydata"></FXCollections>
+					</data>
+				</XYChart.Series>
+			</FXCollections>
+		</data>
+	</ScatterChart>
+</VBox>
