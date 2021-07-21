@@ -44,7 +44,7 @@ public class PlotController
         
         try
         {
-            NodeList nodes = (NodeList)xpath.evaluate("//tbody/tr", new InputSource(file.openStream()), XPathConstants.NODESET);
+            var nodes = (NodeList)xpath.evaluate("//tbody/tr", new InputSource(file.openStream()), XPathConstants.NODESET);
             for (int i = 0 ; i < nodes.getLength() ; i++)
             {
                 var tr = (Element)nodes.item(i);
