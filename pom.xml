@@ -13,7 +13,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>16</release>
+					<release>17</release>
 				</configuration>
 			</plugin>
 		
@@ -23,9 +23,16 @@
 			<plugin>
 				<groupId>org.openjfx</groupId>
 				<artifactId>javafx-maven-plugin</artifactId>
-				<version>0.0.6</version>
+				<version>0.0.8</version>
 				<configuration>
 					<mainClass>guymac.Plotter</mainClass>
+        <stripDebug>true</stripDebug>
+        <compress>2</compress>
+        <noHeaderFiles>true</noHeaderFiles>
+        <noManPages>true</noManPages>
+        <launcher>jfxlpot</launcher>
+        <jlinkImageName>jfxplot</jlinkImageName>
+        <jlinkZipName>jfxplot</jlinkZipName>
 				</configuration>
 			</plugin>
 
@@ -37,7 +44,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
-			<version>16</version>
+			<version>17.0.2</version>
 		</dependency>
 	</dependencies>
 
