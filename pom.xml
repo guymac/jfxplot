@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>guymac</groupId>
 	<artifactId>jfxplot</artifactId>
-	<version>0.1</version>
+	<version>0.2</version>
 
 	<build>
 		<plugins>
@@ -30,7 +30,7 @@
         <compress>2</compress>
         <noHeaderFiles>true</noHeaderFiles>
         <noManPages>true</noManPages>
-        <launcher>jfxlpot</launcher>
+        <launcher>jfxplot</launcher>
         <jlinkImageName>jfxplot</jlinkImageName>
         <jlinkZipName>jfxplot</jlinkZipName>
 				</configuration>
