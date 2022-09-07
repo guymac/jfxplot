@@ -25,43 +25,6 @@ public class PlotController
 
     @FXML void initialize()
     {
-
-        URL file = null;
-        
-        try
-        {
-            file = getClass().getResource("/vaxdata20210717.xhtml");
-            if (file == null) throw new IOException("File not found");
-        }
-        catch (IOException ex)
-        {
-            new Alert(AlertType.ERROR, ex.getMessage()).showAndWait();
-            Platform.exit();
-            return;
-        }
-             
-        var xpath = XPathFactory.newInstance().newXPath();
-        
-        try
-        {
-            var nodes = (NodeList)xpath.evaluate("//tbody/tr", new InputSource(file.openStream()), XPathConstants.NODESET);
-            for (int i = 0 ; i < nodes.getLength() ; i++)
-            {
-                var tr = (Element)nodes.item(i);
-                var state = xpath.evaluate("th", tr);
-                
-                var x = Double.parseDouble(xpath.evaluate("td[1]", tr).replace("%", ""));
-                var y = Double.parseDouble(xpath.evaluate("td[2]", tr).replace("%", ""));
-                xydata.add(new XYChart.Data <>(x, y, state));                
-            }
-        } 
-        catch (Exception ex)
-        {
-            new Alert(AlertType.ERROR, ex.getMessage()).showAndWait();
-            Platform.exit();
-            return;
-        }
-
         for (var item : xydata)
         {
             var color = item.getYValue().doubleValue() >= 50 ? "blue" : "red";
