@@ -6,6 +6,10 @@
 	<artifactId>jfxplot</artifactId>
 	<version>0.2</version>
 
+	<properties>
+   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<build>
 		<plugins>
 		
