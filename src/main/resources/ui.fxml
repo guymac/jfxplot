@@ -22,7 +22,58 @@
 				<XYChart.Series fx:id="xyseries">
 					<data>
 						<FXCollections fx:factory="observableArrayList"
-							fx:id="xydata"></FXCollections>
+							fx:id="xydata">
+<XYChart.Data extraValue="Alabama" XValue="${33.61}" YValue="${36.57}" />
+<XYChart.Data extraValue="Alaska" XValue="${44.83}" YValue="${42.77}" />
+<XYChart.Data extraValue="Arizona" XValue="${44.35}" YValue="${49.36}" />
+<XYChart.Data extraValue="Arkansas" XValue="${35.20}" YValue="${34.78}" />
+<XYChart.Data extraValue="California" XValue="${51.51}" YValue="${63.48}" />
+<XYChart.Data extraValue="Colorado" XValue="${53.34}" YValue="${55.4}" />
+<XYChart.Data extraValue="Connecticut" XValue="${62.12}" YValue="${59.26}" />
+<XYChart.Data extraValue="Delaware" XValue="${51.55}" YValue="${58.74}" />
+<XYChart.Data extraValue="Florida" XValue="${47.34}" YValue="${47.86}" />
+<XYChart.Data extraValue="Georgia" XValue="${37.49}" YValue="${49.47}" />
+<XYChart.Data extraValue="Hawaii" XValue="${52.86}" YValue="${63.73}" />
+<XYChart.Data extraValue="Idaho" XValue="${36.83}" YValue="${33.07}" />
+<XYChart.Data extraValue="Illinois" XValue="${47.51}" YValue="${57.54}" />
+<XYChart.Data extraValue="Indiana" XValue="${43.37}" YValue="${40.96}" />
+<XYChart.Data extraValue="Iowa" XValue="${48.93}" YValue="${44.89}" />
+<XYChart.Data extraValue="Kansas" XValue="${42.88}" YValue="${41.56}" />
+<XYChart.Data extraValue="Kentucky" XValue="${44.65}" YValue="${36.15}" />
+<XYChart.Data extraValue="Louisiana" XValue="${36.05}" YValue="${39.85}" />
+<XYChart.Data extraValue="Maine" XValue="${62.75}" YValue="${53.09}" />
+<XYChart.Data extraValue="Maryland" XValue="${57.64}" YValue="${65.36}" />
+<XYChart.Data extraValue="Massachusetts" XValue="${62.96}" YValue="${65.60}" />
+<XYChart.Data extraValue="Michigan" XValue="${48.07}" YValue="${50.62}" />
+<XYChart.Data extraValue="Minnesota" XValue="${52.97}" YValue="${52.40}" />
+<XYChart.Data extraValue="Mississippi" XValue="${33.65}" YValue="${41.06}" />
+<XYChart.Data extraValue="Missouri" XValue="${40.05}" YValue="${41.41}" />
+<XYChart.Data extraValue="Montana" XValue="${43.71}" YValue="${40.55}" />
+<XYChart.Data extraValue="Nebraska" XValue="${48.68}" YValue="${39.17}" />
+<XYChart.Data extraValue="Nevada" XValue="${43.21}" YValue="${50.06}" />
+<XYChart.Data extraValue="New Hampshire" XValue="${57.56}" YValue="${52.71}" />
+<XYChart.Data extraValue="New Jersey" XValue="${56.82}" YValue="${57.23}" />
+<XYChart.Data extraValue="New Mexico" XValue="${56.04}" YValue="${54.29}" />
+<XYChart.Data extraValue="New York State" XValue="${55.78}" YValue="${60.86}" />
+<XYChart.Data extraValue="North Carolina" XValue="${42.86}" YValue="${48.59}" />
+<XYChart.Data extraValue="North Dakota" XValue="${39.54}" YValue="${31.76}" />
+<XYChart.Data extraValue="Ohio" XValue="${45.75}" YValue="${45.24}" />
+<XYChart.Data extraValue="Oklahoma" XValue="${39.36}" YValue="${32.29}" />
+<XYChart.Data extraValue="Oregon" XValue="${55.03}" YValue="${56.45}" />
+<XYChart.Data extraValue="Pennsylvania" XValue="${51.08}" YValue="${50.01}" />
+<XYChart.Data extraValue="Rhode Island" XValue="${60.30}" YValue="${59.39}" />
+<XYChart.Data extraValue="South Carolina" XValue="${39.73}" YValue="${43.43}" />
+<XYChart.Data extraValue="South Dakota" XValue="${46.22}" YValue="${35.61}" />
+<XYChart.Data extraValue="Tennessee" XValue="${38.29}" YValue="${37.45}" />
+<XYChart.Data extraValue="Texas" XValue="${42.64}" YValue="${46.48}" />
+<XYChart.Data extraValue="Utah" XValue="${43.78}" YValue="${37.65}" />
+<XYChart.Data extraValue="Vermont" XValue="${66.75}" YValue="${66.09}" />
+<XYChart.Data extraValue="Virginia" XValue="${53.36}" YValue="${54.11}" />
+<XYChart.Data extraValue="Washington" XValue="${56.42}" YValue="${57.97}" />
+<XYChart.Data extraValue="West Virginia" XValue="${38.79}" YValue="${29.69}" />
+<XYChart.Data extraValue="Wisconsin" XValue="${50.95}" YValue="${49.45}" />
+<XYChart.Data extraValue="Wyoming" XValue="${35.97}" YValue="${26.55}" />
+						</FXCollections>
 					</data>
 				</XYChart.Series>
 			</FXCollections>
